@@ -1,4 +1,4 @@
-# Drills - Muscle Memory Training
+# Drills - Quick syntax practice
 # Follow the instructions in the comments. Write your code directly below the comment.
 # ----------------------------------------------------------------------------------
 

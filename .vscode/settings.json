@@ -1,0 +1,13 @@
+{
+    "markdown.validate.enabled": true,
+    "cSpell.words": [
+        "isinstance",
+        "issubclass",
+        "kwargs",
+        "Pydantic",
+        "pytest",
+        "Pythonic",
+        "repr",
+        "Schafer"
+    ]
+}

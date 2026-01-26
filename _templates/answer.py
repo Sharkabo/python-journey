@@ -1,6 +1,6 @@
-# Complete your task here (refer to task.md)
+# Complete your task here (goals are defined in task.md)
 
-# 1. [Goal 1 Description]
+# Step 1:
 
+# Step 2:
 
-# 2. [Goal 2 Description]

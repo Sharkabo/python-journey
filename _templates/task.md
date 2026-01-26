@@ -1,13 +1,14 @@
 # Task Description
 
-Open `my_answer.py` in this folder and complete the following objectives:
+Open `answer.py` in this folder and complete the following objectives:
 
-## Goal 1
-Description of the first small task.
+## Step 1
+Description of the first step.
 
-## Goal 2
-Description of the second small task.
+## Step 2
+Description of the second step.
 
+Balabala, we can add more steps here
 ---
 **Expected Output:**
 When you run the code, the terminal should show:
