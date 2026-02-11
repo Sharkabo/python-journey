@@ -1,4 +1,4 @@
-# Python Journey - Updated Curriculum
+# Phase 1: Python Basics - Curriculum
 
 ## Complete Unit List (01-21)
 
@@ -73,68 +73,14 @@
 
 ---
 
-## What's Now Covered
+## Next Steps
 
-Your curriculum now includes all essential Python basics:
-
-[COMPLETE] Data Types (strings, numbers, booleans, lists, tuples, sets, dictionaries)  
-[COMPLETE] Control Flow (if/else, for loops, while loops, break, continue)  
-[COMPLETE] Functions (definition, parameters, return values)  
-[COMPLETE] String Manipulation (methods, formatting, f-strings)  
-[COMPLETE] File I/O (reading, writing)  
-[COMPLETE] Error Handling (try/except)  
-[COMPLETE] Libraries (imports)  
-[COMPLETE] Advanced List Operations (comprehensions)  
-
----
-
-## Why This Order Works Better
-
-**Improved Learning Progression:**
-
-1. **Foundational Skills First** (Units 09-10)
-   - String methods and boolean logic are fundamental
-   - Used constantly in real programming
-   - Should be learned early
-
-2. **Complete Function Knowledge** (Unit 11)
-   - Functions with return values right after basic functions
-   - No gap in understanding
-
-3. **Full Loop Control** (Unit 12)
-   - Break and continue before while loops
-   - Complete understanding of loop mechanics
-
-4. **Grouped Data Structures** (Units 13-14)
-   - Dictionaries, tuples, and sets together
-   - Easier to compare and contrast
-
-5. **Advanced Topics in Sequence** (Units 15-20)
-   - While loops -> Libraries -> Error handling -> File I/O
-   - Logical progression of complexity
-
-6. **List Comprehensions Before Final Project** (Unit 20)
-   - More tools available for the final project
-   - Pythonic coding style
-
-7. **Final Project Last** (Unit 21)
-   - Uses all concepts learned
-   - Perfect capstone experience
-
----
-
-## Next Steps (Optional Advanced Topics)
-
-If you want to continue beyond basics:
-- Classes & Object-Oriented Programming (OOP)
-- Decorators & Generators
-- Working with APIs
-- Regular Expressions
-- Virtual Environments & Package Management
-- Testing (unittest, pytest)
+After completing Phase_1_BASICS:
+- Progress to **Phase_2_ADVANCED** for OOP, decorators, type hints, and algorithms
+- Complete the **Capstone Project** in `/capstone/`
 
 ---
 
 **Created**: 2026-01-28  
-**Last Updated**: 2026-01-28 (Reorganized for optimal learning progression)  
-**Status**: Complete Python Basics Curriculum - Reorganized
+**Updated**: 2026-02-12  
+**Status**: Phase 1 - Python Basics (21 units)

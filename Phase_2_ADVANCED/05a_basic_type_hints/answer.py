@@ -1,37 +1,17 @@
-# Complete your task here (goals are defined in task.md)
+name: str = 'Alice'
+age: int = 25
+height: float = 1.75
+is_student: bool = True
 
-# Step 1: Create Typed Variables
+def calculate_bmi(weight: float, height: float) -> float:
+    if isinstance(weight, (int, float)) and isinstance(height, (int, float)):
+        return weight / height ** 2
+    else:
+        raise ValueError('Weight and height must be numeric')
 
+def get_average_grade(grades: list[float]) -> float:
+    return sum(grades) / len(grades)
 
-# Step 2: Create a Typed Function
-
-
-# Step 3: Create a Function with List Type Hints
-
-
-# Step 4: Create a Function Returning Tuple
-
-
-# Test your code
-if __name__ == "__main__":
-    # Test Step 1
-    print(f"Name: {name}")
-    print(f"Age: {age}")
-    print(f"Height: {height}")
-    print(f"Is Student: {is_student}")
-    
-    # Test Step 2
-    bmi = calculate_bmi(70.0, 1.75)
-    print(f"BMI: {bmi:.2f}")
-    
-    # Test Step 3
-    grades = [85.5, 92.0, 88.5, 84.0]
-    avg = get_average_grade(grades)
-    print(f"Average Grade: {avg:.2f}")
-    
-    # Test Step 4
-    info1 = get_user_info("Bob", 17)
-    print(f"User Info: {info1}")
-    
-    info2 = get_user_info("Alice", 25)
-    print(f"User Info: {info2}")
+def get_user_info(name: str, age: int) -> tuple[str, int, bool]:
+    is_adult = age >= 18
+    return (name, age, is_adult)

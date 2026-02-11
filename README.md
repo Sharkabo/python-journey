@@ -6,7 +6,8 @@ A structured learning path focused on mastering Python fundamentals and advanced
 
 This repository contains:
 - **Phase_1_BASICS** - 21 units covering fundamental Python concepts
-- **Phase_2_ADVANCED** - 33 units covering OOP, type hints, decorators, algorithms, and more
+- **Phase_2_ADVANCED** - 32 units covering OOP, type hints, decorators, algorithms, and more
+- **Capstone Project** - Comprehensive final project integrating all skills
 - **Structured unit templates** for consistent learning experience
 
 ---
@@ -16,7 +17,8 @@ This repository contains:
 ```
 python_journey/
 ├── Phase_1_BASICS/       (21 units - Completed)
-├── Phase_2_ADVANCED/     (33 units - In Progress)
+├── Phase_2_ADVANCED/     (32 units - In Progress)
+├── capstone/             (Final comprehensive project)
 └── _templates/           (Unit templates)
 ```
 
@@ -65,18 +67,11 @@ The key distinction: `drill.py` builds syntax muscle memory through repetition, 
 
 ---
 
-## Quick Start
-
-1. Start with **Phase_1_BASICS** if you're new to Python
-2. Progress to **Phase_2_ADVANCED** after completing the basics
-3. Follow each unit sequentially (see learning flow below)
-
----
-
 ## Current Status
 
 - **Phase_1_BASICS:** Python Fundamentals - ✓ Completed (21/21 units)
-- **Phase_2_ADVANCED:** Advanced Python - In Progress (2/33 units)
+- **Phase_2_ADVANCED:** Advanced Python - In Progress (2/32 units)
+- **Capstone:** Not started
 
 ---
 
@@ -84,12 +79,33 @@ The key distinction: `drill.py` builds syntax muscle memory through repetition, 
 
 **Per Phase:**
 - **Phase_1_BASICS:** 21 units × 30 min = ~10.5 hours (1-3 weeks)
-- **Phase_2_ADVANCED:** 33 units × 30 min = ~16.5 hours (2-4 weeks)
+- **Phase_2_ADVANCED:** 32 units × 30 min = ~16 hours (2-4 weeks)
+- **Capstone:** ~10-20 hours depending on features implemented
 
 **Learning pace:**
-- Full-time (8 units/day): Complete both in ~1.5 weeks
-- Part-time (4 units/day): Complete both in ~3 weeks
-- Casual (2 units/day): Complete both in ~6 weeks
+- Full-time (8 units/day): Complete both phases in ~1.5 weeks
+- Part-time (4 units/day): Complete both phases in ~3 weeks
+- Casual (2 units/day): Complete both phases in ~6 weeks
+
+---
+
+## Capstone Project
+
+After completing both phases, build a **Task Management CLI Application** that integrates everything you've learned:
+
+**What you'll build:**
+- Complete command-line task manager with CRUD operations
+- Task priorities, categories, and search functionality
+- Data persistence using JSON files
+- Custom exceptions and error handling
+- Decorators for logging and validation
+- Full OOP design with type hints throughout
+
+**Skills demonstrated:**
+- Phase 1: File I/O, dictionaries, lists, control flow, error handling
+- Phase 2: OOP, type hints, decorators, context managers, custom exceptions
+
+See [`capstone/task.md`](file:///Users/ianchen/development/python_projects/python-journey/capstone/task.md) for detailed requirements.
 
 ---
 
@@ -117,4 +133,4 @@ This is a personal learning repository. All content is for educational purposes.
 ---
 
 **Last Updated:** 2026-02-12  
-**Current Phase:** Phase_2_ADVANCED (2/33 units completed)
+**Current Phase:** Phase_2_ADVANCED (2/32 units completed)
