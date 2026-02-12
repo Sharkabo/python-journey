@@ -1,37 +1,21 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Infinite Sequence Generator**
 
-## Step 1: Create a Countdown Iterator
-Create a `Countdown` class that:
-- Takes a starting number in `__init__`
-- Implements `__iter__()` that returns self
-- Implements `__next__()` that counts down and raises StopIteration at 0
+You are building a simulation that needs an endless stream of Fibonacci numbers to model population growth. You can't pre-calculate a list because you don't know how many numbers you'll need—maybe 50, maybe 5000. You need an object that generates the *next* number only when asked.
 
-## Step 2: Test Your Iterator with for Loop
-Use a for loop to iterate through Countdown(5) and print each number.
+**Your Goal:**
+Build a custom Iterator class `FibonacciIterator` that calculates the next number in the sequence on-the-fly.
 
-## Step 3: Test Your Iterator with next()
-Create an iterator and manually call `next()` on it 3 times to see the countdown.
+**Objectives:**
+1.  Create a class `FibonacciIterator`.
+2.  Implement `__init__(self, max_count)` to limit the sequence (optional safety stop).
+3.  Implement `__iter__(self)` to return `self`.
+4.  Implement `__next__(self)`:
+    - It should calculate the next Fibonacci number (0, 1, 1, 2, 3, 5...).
+    - It should update its internal state (`a`, `b` = `b`, `a + b`).
+    - It should `raise StopIteration` if it exceeds `max_count`.
+5.  Use a `for` loop to iterate through your class and print the first 10 numbers.
 
-## Step 4: Handle StopIteration
-Use a try/except block to catch StopIteration when manually calling next() beyond the limit.
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Countdown from 5:
-5
-4
-3
-2
-1
-
-Manual countdown from 3:
-3
-2
-1
-Countdown finished! (StopIteration caught)
-```
+**Success Condition:**
+You should be able to run `for num in FibonacciIterator(10): print(num)` and see the sequence print out line by line. The memory usage should be tiny because it never stores the full list.

@@ -1,45 +1,18 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Massive Log File**
 
-## Step 1: Create a Fibonacci Generator
-Create a generator function `fibonacci(n)` that:
-- Uses `yield` to generate Fibonacci numbers
-- Generates the first `n` Fibonacci numbers
-- Example: fibonacci(10) should yield: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+You have a 50GB server log file. You need to read it line-by-line to find error messages. If you try to open this file and read it into a list (`lines = file.readlines()`), your computer will run out of RAM and crash. You need a "Lazy" way to read it.
 
-## Step 2: Create an Infinite Generator
-Create a generator `count_up(start=0)` that:
-- Counts up infinitely from the start number
-- Uses `yield` and a while True loop
-- Never stops (user must manually stop iteration)
+**Your Goal:**
+Create a generator function that simulates reading a massive file line-by-line, yielding one line at a time.
 
-## Step 3: Create a Generator Expression
-Create a generator expression that:
-- Generates squares of numbers from 1 to 10
-- Compare memory usage concept with list comprehension (mentioned in comment)
+**Objectives:**
+1.  Create a generator function `stream_log_data(lines_count)`.
+2.  Instead of reading a real file (to keep it simple), use a loop to generate simulated log lines like `"Log line 1"`, `"Log line 2"`, etc., up to `lines_count`.
+3.  Use the `yield` keyword to return one line at a time to the caller.
+4.  Pause the loop after each yield.
+5.  Demonstrate usage: Use a `for` loop to consume your generator. Print `"Processing: Log line X"` for each item.
 
-## Step 4: Chain Generators Together
-Create a function `even_squares(n)` that:
-- Uses your count_up() generator
-- Filters for even numbers only
-- Squares them
-- Returns first n results
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Fibonacci sequence (first 10):
-0 1 1 2 3 5 8 13 21 34
-
-Infinite counter (first 5):
-0 1 2 3 4
-
-Generator expression (squares of 1-10):
-1 4 9 16 25 36 49 64 81 100
-
-Even squares (first 5):
-0 4 16 36 64
-```
+**Success Condition:**
+Calling `stream_log_data(5)` should NOT return a list `['Log line 1', ...]`. It should return a *generator object*. Your `for` loop should receive the lines one by one. Prove it's lazy!

@@ -1,44 +1,25 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Syntax Tree Evaluator**
 
-## Step 1: Implement Inorder Traversal
-Create function `inorder(node)` that:
-- Traverses: Left -> Root -> Right
-- Returns list of values in sorted order (for BST)
-- Uses recursion
+Compilers don't read code line-by-line; they turn it into an "Abstract Syntax Tree". For example, the math expression `(5 + 3) * 2` becomes a tree where `*` is the root, `+` is the left child, and `2` is the right child. To calculate the answer, you must evaluate the children *before* the parent (Postorder Traversal).
 
-## Step 2: Implement Preorder Traversal
-Create function `preorder(node)` that:
-- Traverses: Root -> Left -> Right
-- Returns list of values
-- Useful for copying tree structure
+**Your Goal:**
+Build a simple Expression Tree and write a `postorder_evaluate` function to solve it.
 
-## Step 3: Implement Postorder Traversal
-Create function `postorder(node)` that:
-- Traverses: Left -> Right -> Root
-- Returns list of values
-- Useful for deleting tree (children before parent)
+**Objectives:**
+1.  Create a `Node` that can hold a value (int) OR an operator (str `+`, `*`).
+2.  Manually build the tree for `(5 + 3) * 2`:
+    - Root: `*`
+    - Left: `+` (Left: 5, Right: 3)
+    - Right: 2
+3.  Implement `evaluate(node) -> int`:
+    - **Base Case:** If node is a number (leaf), return it.
+    - **Recursive Step:**
+        - `left_val = evaluate(node.left)`
+        - `right_val = evaluate(node.right)`
+        - Apply the operator (`*` or `+`) to `left_val` and `right_val` and return result.
 
-## Step 4: Compare All Three Traversals
-Use the same tree and show results of all three traversals side-by-side.
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Tree structure:
-    50
-  30    70
-20  40 60  80
-
-Inorder (Left-Root-Right): [20, 30, 40, 50, 60, 70, 80]
-Sorted for BST!
-
-Preorder (Root-Left-Right): [50, 30, 20, 40, 70, 60, 80]
-Good for copying structure!
-
-Postorder (Left-Right-Root): [20, 40, 30, 60, 80, 70, 50]
-Good for deletion!
-```
+**Success Condition:**
+Calling `evaluate(root)` should return 16 (`(5+3)*2` = `8*2` = 16).
+This proves you can process a tree from the bottom up!

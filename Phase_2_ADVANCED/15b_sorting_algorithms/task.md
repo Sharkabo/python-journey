@@ -1,47 +1,22 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: Sorting the E-Commerce Catalog**
 
-## Step 1: Implement Merge Function
-Create function `merge(left, right)` that:
-- Takes two sorted arrays
-- Merges them into one sorted array
-- Returns the merged result
+You have a list of `Product` objects (name, price). You need to sort them by price. While Python's `sort()` is great, understanding **Merge Sort** is critical for interviews and understanding divide-and-conquer algorithms.
 
-## Step 2: Implement Merge Sort
-Create function `merge_sort(arr)` that:
-- Recursively divides array in half
-- Calls merge() to combine sorted halves
-- Time complexity: O(n log n)
+**Your Goal:**
+Implement **Merge Sort** from scratch to sort a list of custom objects based on a specific attribute.
 
-## Step 3: Add Step Counter
-Modify merge_sort to count:
-- Number of divisions
-- Number of merges
-- Show the recursive process
+**Objectives:**
+1.  Create a `Product` class `(name, price)`.
+2.  Create a list of 5 unsorted products.
+3.  Implement `merge_sort(products) -> list`:
+    - **Base Case:** If list len <= 1, return it.
+    - **Divide:** Split list in half.
+    - **Conquer:** Recursively call `merge_sort` on left and right halves.
+    - **Merge:** Write a `merge(left, right)` helper function that compares `left[0].price` vs `right[0].price` and combines them into a sorted list.
+4.  Print the list before and after.
 
-## Step 4: Compare with Bubble Sort
-Sort the same array with both:
-- Merge sort O(n log n)
-- Bubble sort O(n²) (from previous exercise)
-- Compare the number of operations
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Original array: [38, 27, 43, 3, 9, 82, 10]
-
-Merge Sort:
-Sorted: [3, 9, 10, 27, 38, 43, 82]
-Divisions: 6
-Merges: 6
-
-Comparison with Bubble Sort (same array):
-Merge Sort operations: ~24
-Bubble Sort operations: ~49
-
-Merge sort is much more efficient!
-O(n log n) vs O(n²)
-```
+**Success Condition:**
+The output list must be sorted by Price ascending.
+You must NOT use `list.sort()` or `sorted()`. You must write the recursive logic yourself.

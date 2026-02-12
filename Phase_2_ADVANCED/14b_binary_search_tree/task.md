@@ -1,41 +1,29 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Real-Time Leaderboard**
 
-## Step 1: Create BST Class with Insert
-Create a `BinarySearchTree` class that:
-- Uses TreeNode from previous exercise
-- Has `insert(value)` method that maintains BST property
-- Smaller values go left, larger values go right
+You are running a game server. Thousands of scores come in every minute. You need to store them in a way that lets you quickly search if a specific score exists, or find where a new score fits. A regular list is too slow (`O(n)` search). A Binary Search Tree (BST) allows `O(log n)` average search and insertion.
 
-## Step 2: Implement Search
-Add method `search(value)` that:
-- Returns True if value exists in tree
-- Returns False if not found
-- Uses BST property for efficient search
+**Your Goal:**
+Implement a **Binary Search Tree** that automatically places lower scores to the left and higher scores to the right.
 
-## Step 3: Implement Find Min and Max
-Add methods:
-- `find_min()` - returns the smallest value in the tree
-- `find_max()` - returns the largest value in the tree
+**Objectives:**
+1.  Create `Node` with `score` (int), `left`, `right`.
+2.  Create `LeaderboardBST` class.
+3.  Implement `insert(score)`:
+    - If tree is empty, new node is root.
+    - If not empty, traverse down:
+        - Go LEFT if `score < current.score`.
+        - Go RIGHT if `score >= current.score`.
+        - Place the new node when you hit a `None` spot.
+4.  Implement `exists(score) -> bool`:
+    - Traverse the tree efficiently (binary search logic) to find if a score is present.
 
-## Step 4: Test Your BST
-Insert values, search for them, and find min/max.
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Inserting: 50, 30, 70, 20, 40, 60, 80
-
-Search for 40: True
-Search for 25: False
-Search for 70: True
-Search for 100: False
-
-Minimum value: 20
-Maximum value: 80
-
-Tree follows BST property: left < root < right
-```
+**Success Condition:**
+Insert scores: [50, 30, 70, 20, 40, 60, 80].
+Manually verify the structure:
+- Root is 50.
+- Root.left is 30.
+- Root.right is 70.
+- Root.left.left is 20.
+Calling `exists(40)` should return True. Calling `exists(99)` should return False.

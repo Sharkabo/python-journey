@@ -1,37 +1,29 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Undo/Redo System**
 
-## Step 1: Create a Doubly Linked Node
-Create a `DNode` class that has:
-- `data` attribute
-- `next` attribute (reference to next node)
-- `prev` attribute (reference to previous node)
+You are building a text editor. Every time the user types, you save their state. They hit Ctrl+Z to "Undo" (go back), and Ctrl+Y to "Redo" (go forward). A Singly Linked List can't do this efficiently because you can't go backwards from the current node. You need a Doubly Linked List.
 
-## Step 2: Create a Doubly Linked List
-Create a `DoublyLinkedList` class with:
-- `head` and `tail` attributes
-- `append(data)` method that updates both next and prev pointers
-- Update both head and tail appropriately
+**Your Goal:**
+Implement a **Doubly Linked List** to track user states, allowing O(1) navigation in both directions.
 
-## Step 3: Implement Backward Traversal
-Add method `display_reverse()` that:
-- Starts from tail
-- Traverses backward using prev pointers
-- Prints the list in reverse order
+**Objectives:**
+1.  Create a `Node` class with `data` (string state like "Hello"), `next`, and `prev`.
+2.  Create a `History` class.
+    - `self.current`: Points to the current active state node.
+3.  Implement `add_state(text)`:
+    - Create a new node.
+    - Link it *after* `self.current`.
+    - Important: If `current` was in the middle of the history (after undoing), adding a new state should discarding all "future" (redo) nodes.
+4.  Implement `undo()`: Move `current` to `current.prev` (if it exists). Return the text.
+5.  Implement `redo()`: Move `current` to `current.next` (if it exists). Return the text.
 
-## Step 4: Test Bidirectional Traversal
-Create a list, add elements, and traverse both forward and backward.
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Forward: 10 <-> 20 <-> 30 <-> 40 <-> None
-Backward: 40 <-> 30 <-> 20 <-> 10 <-> None
-
-Adding more elements...
-Forward: 10 <-> 20 <-> 30 <-> 40 <-> 50 <-> 60 <-> None
-Backward: 60 <-> 50 <-> 40 <-> 30 <-> 20 <-> 10 <-> None
-```
+**Success Condition:**
+1.  Type "He". Add state.
+2.  Type "Hel". Add state.
+3.  Type "Hell". Add state.
+4.  Undo -> Should return "Hel".
+5.  Undo -> Should return "He".
+6.  Redo -> Should return "Hel".
+7.  Type "Help". Add state. (This should orphan "Hell" so you can't redo to it anymore).
+8.  Verify the links are correct.

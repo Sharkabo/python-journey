@@ -1,49 +1,18 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Strictly Typed Inventory System**
 
-## Step 1: Create a Typed Product Class
-Create a `Product` class with type hints:
-- `__init__(self, name: str, price: float, stock: int)` 
-- Properties: name, price, stock with proper type hints
-- Method: `is_in_stock(self) -> bool` returns True if stock > 0
+You are building the core backend for a high-reliability e-commerce platform. The previous system caused millions of dollars in losses because simple type errors (like treating a price strings as numbers) crashed the checkout process. Your CTO has mandated that the new system must use **Type Hints** for everything.
 
-## Step 2: Create a Typed Inventory Class
-Create an `Inventory` class that:
-- Has `__init__(self)` initializing `items: list[Product]`
-- Has `add_product(self, product: Product) -> None` to add a product
-- Has `get_total_value(self) -> float` that returns total value (sum of price * stock)
-- All methods have proper type hints
+**Your Goal:**
+Build a robust `Inventory` system that manages `Product` items. You must use strict type hints for all classes, methods, and list collections to ensure the code is transparent and self-documenting.
 
-## Step 3: Create a Typed Method with Inheritance
-Create a `DiscountedProduct(Product)` class that:
-- Inherits from Product
-- Adds `discount: float` parameter to `__init__`
-- Overrides a method `get_final_price(self) -> float` with type hints
-- Returns price after discount (price * (1 - discount))
+**Objectives:**
+1.  Create a `Product` class with typed attributes for `name` (str), `price` (float), and `stock` (int).
+2.  Add a generic type hint list `items: list[Product]` to the `Inventory` class to ensure it *only* stores Product objects.
+3.  Implement a method `add_product(product: Product) -> None` that enforces adding valid Product instances.
+4.  Implement `get_total_value() -> float` to calculate the total value of all stock.
+5.  Create a strict protocol or base structure if needed, but primarily focus on ensuring that if another developer tries to add a `string` or `int` to your inventory, a static type checker would scream at them (and it should be visually obvious in the code).
 
-## Step 4: Test Your Classes
-Create instances and test:
-- Create 2-3 Product instances
-- Add them to Inventory
-- Create a DiscountedProduct
-- Print results with type-safe operations
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Product: Laptop
-In stock: True
-Price: $999.99
-
-Product: Mouse
-In stock: False
-
-Total inventory value: $1049.98
-
-Discounted Product: Keyboard
-Original price: $79.99
-Final price: $63.99
-```
+**Success Condition:**
+Your code should gracefully handle creating products, adding them to an inventory, and calculating the total value, with every single variable and function signature explicitly typed.

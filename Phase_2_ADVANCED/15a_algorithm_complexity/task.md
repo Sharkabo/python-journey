@@ -1,52 +1,24 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Algorithm Race**
 
-## Step 1: Implement O(n) Linear Search
-Create function `linear_search(arr, target)` that:
-- Searches through array sequentially  
-- Returns index if found, -1 if not
-- Time complexity: O(n)
+Your manager thinks "Code is code, it doesn't matter how you write it as long as it works." You need to prove them wrong. You need to demonstrate that for large datasets, an unnecessary nested loop (`O(n²)`) is catastrophic compared to a linear solution (`O(n)`).
 
-## Step 2: Implement O(n²) Bubble Sort
-Create function `bubble_sort_demo(arr)` that:
-- Uses nested loops to sort
-- Counts comparisons made
-- Time complexity: O(n²)
+**Your Goal:**
+Write two functions that do the same thing (find duplicates) but with different complexities, and RACE them.
 
-## Step 3: Compare Performance
-Create function `measure_time(func, *args)` that:
-- Measures execution time of a function
-- Returns elapsed time in seconds
-- Use `time` module
+**Objectives:**
+1.  Generate a list of 10,000 random integers between 1 and 100.
+2.  **Function 1 (Bad):** `find_duplicates_quadratic(lst)`.
+    - Use a nested loop: `for i in lst: for j in lst:` to check for duplicates.
+    - This is `O(n²)`.
+3.  **Function 2 (Good):** `find_duplicates_linear(lst)`.
+    - Use a Set or Dictionary to track seen numbers: `if i in seen:`.
+    - This is `O(n)`.
+4.  Use `time.time()` to measure how long each one takes.
 
-## Step 4: Demonstrate Big O Differences
-Test with different input sizes and show how:
-- O(n) scales linearly
-- O(n²) scales quadratically
-- Compare actual run times
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Linear Search O(n):
-Found 50 at index 4
-Comparisons: 5
-
-Not found 99
-Comparisons: 10
-
-Bubble Sort O(n²):
-Original: [64, 34, 25, 12, 22]
-Sorted: [12, 22, 25, 34, 64]
-Comparisons: 10
-
-Performance Comparison:
-Small array (n=10):
-  Linear search: 0.0001 seconds
-  Bubble sort: 0.0002 seconds
-
-The difference grows with larger n!
-```
+**Success Condition:**
+Run the race.
+The Linear solution should be instantaneous (0.00something seconds).
+The Quadratic solution should take noticeably longer (maybe seconds or tens of seconds).
+Print the winner and the time difference factor (e.g., "Linear was 500x faster").

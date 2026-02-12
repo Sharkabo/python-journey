@@ -1,48 +1,23 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Strict Password Policy**
 
-## Step 1: Create a Custom Exception
-Create a custom exception class `ValidationError` that:
-- Inherits from Exception
-- Takes a message parameter
-- Optionally takes a `field_name` parameter
-- Stores both in instance attributes
+You are building the user registration system for a banking app. A generic "Invalid Password" error is not helpful—users need to know *why* their password failed (Too short? No numbers? No symbols?). You need to create a validation system that throws specific, granular errors.
 
-## Step 2: Raise Your Custom Exception
-Create a function `validate_age(age: int)` that:
-- Raises ValidationError if age < 0
-- Raises ValidationError if age > 150
-- Returns True if valid
+**Your Goal:**
+Create a custom exception hierarchy to handle different password validation failures distinctively.
 
-## Step 3: Handle Your Custom Exception
-Use try/except to catch ValidationError and:
-- Print the error message
-- Access the field_name if provided
-- Show graceful error handling
+**Objectives:**
+1.  Create a base custom exception `PasswordValidationError(Exception)`.
+2.  Create subclass exceptions:
+    - `PasswordTooShortError`
+    - `PasswordMissingDigitError`
+    - `PasswordMissingSymbolError`
+3.  Write a function `validate_password(password: str)`.
+    - Raise `PasswordTooShortError` if length < 8.
+    - Raise `PasswordMissingDigitError` if no numbers are found.
+    - Raise `PasswordMissingSymbolError` if no special chars are found.
+4.  Write a loop that asks the user for input and uses a `try...except` block to catch each specific error and print a specific helpful message for each one.
 
-## Step 4: Create an Exception Hierarchy
-Create a base `AppError` exception and two specific exceptions:
-- `DatabaseError(AppError)` for database issues
-- `NetworkError(AppError)` for network issues
-Show catching both with a single except block.
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Validation passed: 25
-
-Validation Error: Age cannot be negative
-Field: age
-
-Validation Error: Age cannot exceed 150 years
-Field: age
-
-Exception Hierarchy:
-Caught AppError: Database connection failed
-Caught AppError: Network timeout occurred
-
-Both caught by base exception type!
-```
+**Success Condition:**
+When you provide a weak password "apple", it should specifically say "Password is too short". If you provide "applebanana", it should say "Missing a digit". If you provide "applebanana1", it should say "Missing a symbol". Only "applebanana1!" should pass.

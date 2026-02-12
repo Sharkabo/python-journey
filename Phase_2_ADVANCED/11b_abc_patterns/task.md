@@ -1,48 +1,21 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Swappable Database**
 
-## Step 1: Create a Repository ABC
-Create an abstract `Repository` class that defines a storage interface:
-- Abstract method `save(self, item: dict) -> bool`
-- Abstract method `find(self, id: int) -> dict | None`
-- Abstract method `delete(self, id: int) -> bool`
+Your app currently saves users to a simple JSON file. But next week, you might migrate to a SQL database, or maybe a Cloud API. You don't want to rewrite your entire application logic every time the storage method changes. You need to decouple the "Business Logic" from the "Storage Logic".
 
-## Step 2: Implement In-Memory Repository
-Create `InMemoryRepository(Repository)` that:
-- Uses a dictionary to store items in memory
-- Implements all three abstract methods
-- Stores items by ID
+**Your Goal:**
+Implement the **Repository Pattern** using ABCs. This allows you to swap between a "File Storage" and a "Mock Storage" (for testing) without changing a single line of your main application code.
 
-## Step 3: Implement File Repository
-Create `FileRepository(Repository)` that:
-- Uses JSON file for persistence
-- Implements all three abstract methods
-- Reads/writes to 'data.json'
-- Import `json` module
+**Objectives:**
+1.  Define an interface `UserRepository(ABC)` with methods:
+    - `save(user: dict)`
+    - `get(user_id: int) -> dict`
+2.  Create a concrete class `FileUserRepository` that pretends to save to a file (print "Saving to file...").
+3.  Create a concrete class `MockUserRepository` that saves to an in-memory dictionary (useful for fast tests).
+4.  Write a "Business Logic" function `register_user(repo: UserRepository, name: str)`:
+    - It should accept *any* repository that follows the interface.
+    - It creates a user dict and calls `repo.save()`.
 
-## Step 4: Demonstrate Repository Pattern
-Create a function `manage_users(repo: Repository)` that:
-- Works with any Repository implementation
-- Performs save, find, and delete operations
-- Test with both InMemory and File repositories
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-=== Testing InMemoryRepository ===
-Saved user: True
-Found user: {'id': 1, 'name': 'Alice', 'email': 'alice@example.com'}
-Deleted user: True
-User not found after deletion: None
-
-=== Testing FileRepository ===
-Saved user: True
-Found user: {'id': 2, 'name': 'Bob', 'email': 'bob@example.com'}
-Deleted user: True
-User not found after deletion: None
-
-Repository pattern works with both implementations!
-```
+**Success Condition:**
+You should be able to call `register_user` passing in a `FileUserRepository`, and then call it again passing in a `MockUserRepository`. The function works identically for both, proving your code is loosely coupled.

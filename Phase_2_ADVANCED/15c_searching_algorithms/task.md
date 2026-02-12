@@ -1,50 +1,23 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Timestamp Locator**
 
-## Step 1: Implement Binary Search
-Create function `binary_search(arr, target)` that:
-- Searches sorted array using divide-and-conquer
-- Returns index if found, -1 if not
-- Time complexity: O(log n)
-- Track number of comparisons
+You have a log file with 1 million lines, sorted by timestamp (integer Unix time). You need to find the exact line for a specific timestamp. Scanning 1 million lines (`O(n)`) is too slow. You need to use **Binary Search** (`O(log n)`).
 
-## Step 2: Implement Linear Search (for comparison)
-Create function `linear_search(arr, target)` that:
-- Searches array sequentially
-- Returns index if found, -1 if not
-- Time complexity: O(n)
-- Track number of comparisons
+**Your Goal:**
+Implement Binary Search to find a target number in a sorted list.
 
-## Step 3: Visualize Binary Search Steps
-Modify binary_search to print:
-- Current search range at each step
-- Middle element being checked
-- Decision made (go left/right/found)
+**Objectives:**
+1.  Create a sorted list of numbers: `timestamps = [100, 200, 300, ... 10000]` (you can just use `list(range(0, 10000, 10))`).
+2.  Implement `binary_search(data, target) -> index`:
+    - Use `left` and `right` pointers.
+    - Loop while `left <= right`.
+    - Calculate `mid`.
+    - Check if `data[mid] == target`.
+    - Adjust `left` or `right` to cut the search space in half.
+3.  Return the index if found, or `-1` if not.
 
-## Step 4: Compare Performance
-Test both algorithms on the same data:
-- Search for element near the end
-- Count comparisons for each
-- Show the efficiency difference
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Array: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29]
-
-Binary Search for 25 (with visualization):
-Range [0, 14], mid=7, value=15, target > mid
-Range [8, 14], mid=11, value=23, target > mid
-Range [12, 14], mid=13, value=27, target < mid
-Range [12, 12], mid=12, value=25, FOUND!
-Result: index 12, comparisons: 4
-
-Linear Search for 25:
-Result: index 12, comparisons: 13
-
-Performance: Binary search used 69% fewer comparisons!
-For 1 million items: Binary ~20 comparisons vs Linear ~1,000,000
-```
+**Success Condition:**
+Search for a number that exists (e.g., 500). It should return the correct index.
+Search for a number that doesn't exist (e.g., 505). It should return -1.
+Add a print statement inside the loop: "Checking index X". You should see it find the answer in very few steps (e.g., < 10 steps for 1000 items), proving it's efficient.

@@ -1,47 +1,22 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Slow Fibonacci Sequence**
 
-## Step 1: Create a Timing Decorator
-Create a decorator `timing` that:
-- Records the start time before function execution
-- Executes the function
-- Records the end time after execution
-- Prints how long the function took to run (in seconds)
-- Import `time` module
+You are optimizing a calculation engine. You have a recursive function that calculates Fibonacci numbers, but it is incredibly slow for larger numbers (like `fib(35)`). You need to analyze *why* it's slow (timing) and then *fix* it (caching) without changing the algorithm itself.
 
-## Step 2: Apply Timing Decorator
-Create and decorate two functions:
-- `fast_function()` that calculates sum(range(100))
-- `slow_function()` that uses `time.sleep(1)` to simulate slow operation
+**Your Goal:**
+Build a "Decorator Toolkit" containing two powerful tools: `@timer` and `@memoize`.
 
-## Step 3: Use @lru_cache for Memoization
-Import `lru_cache` from functools.
-Create a recursive `fibonacci(n)` function and decorate it with `@lru_cache(maxsize=128)`.
-Test by calculating fibonacci(35) - it should be very fast due to caching.
+**Objectives:**
+1.  **The Timer:** Create a `@timer` decorator that measures execution time. It should record the start time, run the function, record the end time, and print: `"Function X took 0.0024 seconds"`.
+2.  **The Cache (Memoize):** Create a `@memoize` decorator. It should store the results of expensive function calls in a dictionary `cache = {}`.
+    - Before running the function, check if the arguments are already in `cache`.
+    - If yes, return the stored value (Instant!).
+    - If no, run the function, store the result in `cache`, and then return it.
+3.  Apply `@timer` to a slow recursive Fibonacci function. Observe the slowness.
+4.  Stack `@memoize` on top of (or below) `@timer`.
 
-## Step 4: Compare Cached vs Uncached Performance
-Create an uncached version of fibonacci and time both:
-- Cached fibonacci(35)
-- Uncached fibonacci(35)
-Observe the massive performance difference.
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-fast_function took 0.0000 seconds
-Result: 4950
-
-slow_function took 1.0012 seconds
-Simulated slow operation complete!
-
-Fibonacci (cached) of 35: 9227465
-fibonacci took 0.0000 seconds
-
-Fibonacci (uncached) of 35: 9227465
-fibonacci_uncached took 2.4567 seconds
-
-Performance improvement: 61417x faster with caching!
-```
+**Success Condition:**
+Calculate `fib(35)` without memoization (should take a few seconds).
+Calculate `fib(35)` WITH memoization (should be nearly instant, 0.0000s).
+Prove the speedup using your own `@timer` decorator.

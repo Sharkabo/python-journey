@@ -47,13 +47,10 @@ unit_name/
 - Several quick repetition of new syntax patterns to build muscle memory
 - Time: 5-10 minutes
 
-**task.md** - Exercise definition (created before answer.py)
-- You first create this file to define the exercise
-- Breaking down one massive exercise into several steps
-- Specifies expected output for verification
+**task.md** - created before answer.py
+- One massive structured exercise allow user to practice multiple skills learned in current unit and craft problem solving skills
 
 **answer.py** - Implementation workspace (supports task.md)
-- You write code here to complete task by completing each step defined in task.md
 
 ### Learning Flow
 
@@ -61,8 +58,6 @@ unit_name/
 2. Complete `drill.py` exercises for syntax familiarity
 3. Read `task.md` to understand what to build and how it's broken into steps
 4. Implement solutions in `answer.py`, completing each step in sequence
-
-The key distinction: `drill.py` builds syntax muscle memory through repetition, while `task.md` + `answer.py` build problem-solving skills through structured exercises.
 
 ---
 

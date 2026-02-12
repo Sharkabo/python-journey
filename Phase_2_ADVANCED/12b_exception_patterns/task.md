@@ -1,44 +1,24 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Smart API Error Handler**
 
-## Step 1: Create Exception with Context Data
-Create an `InsufficientFundsError` exception that:
-- Takes `balance`, `requested_amount`, and `account_id` as parameters
-- Stores all three in instance attributes
-- Has a custom `__str__()` method that formats a helpful message
+On the backend of a web API, exceptions happen all the time (Not Found, validation errors, permission denied). You want to centralize how these are handled. Instead of just passing a string message, your exceptions should carry "metadata" like standard HTTP error codes (404, 403, 500) so the API knows what to send back to the frontend.
 
-## Step 2: Use Exception Context in Application
-Create a `BankAccount` class with:
-- Balance attribute
-- `withdraw(amount)` method that raises InsufficientFundsError with context
-- Include account ID in the exception
+**Your Goal:**
+Create a "Rich" exception class that carries both a message and an error code, and build a central handler that processes them.
 
-## Step 3: Handle Exception and Use Context Data
-Catch the exception and:
-- Display all context information
-- Calculate how much more is needed
-- Show user-friendly error message
+**Objectives:**
+1.  Create `AppError(Exception` that accepts `message` and `code`. Store them as attributes.
+2.  Create subclasses:
+    - `NotFoundError` (defaults code to 404).
+    - `NotAuthorizedError` (defaults code to 403).
+3.  Create a "fake database" function `get_user(user_id)`:
+    - Raise `NotFoundError(f"User {user_id} missing")` if user_id is 999.
+    - Raise `NotAuthorizedError("You are banned")` if user_id is 666.
+    - Return a user dict otherwise.
+4.  **The Handler:** Write a `process_request(user_id)` function that wraps the call in a `try...except`.
+    - It should catch `AppError` (the base class).
+    - It should print a JSON-like formatted error: `{"error": "User 999 missing", "code": 404}`.
 
-## Step 4: Chain Exceptions
-Demonstrate exception chaining using `raise ... from`:
-- Wrap a lower-level exception (ValueError) in a higher-level exception
-- Show how both exceptions appear in the traceback
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Account 12345: Withdrawal successful! Balance: $50.00
-
-Withdrawal failed!
-Error: Insufficient funds in account 12345
-Balance: $50.00
-Requested: $75.00
-Shortfall: $25.00
-
-Exception Chaining:
-Caught application error: Invalid transaction
-Original cause: negative numbers not allowed
-```
+**Success Condition:**
+Calling `process_request(999)` should output the structured 404 error. Calling `process_request(666)` should output the 403 error. The handler code should only have ONE except block that handles both cases dynamically.

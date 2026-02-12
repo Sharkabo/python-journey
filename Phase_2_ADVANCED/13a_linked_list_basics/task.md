@@ -1,33 +1,19 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Spotify Clone Playlist**
 
-## Step 1: Create a Node Class
-Create a `Node` class that:
-- Has `data` attribute to store the value
-- Has `next` attribute pointing to the next node (defaults to None)
+You are building the audio engine for a music streaming app. A standard Python list (`[]`) isn't ideal for a playlist because if a user is listening to Song A, the "next" song needs to be strictly linked to it. If you shuffle the playlist, you're just changing these links. You need a data structure where each song knows exactly which song comes next.
 
-## Step 2: Create a LinkedList Class
-Create a `LinkedList` class that:
-- Has a `head` attribute (initially None)
-- Has `append(data)` method to add nodes to the end
-- Has `display()` method to print all values
+**Your Goal:**
+Implement a **Singly Linked List** from scratch to represent a playlist of songs.
 
-## Step 3: Implement Size Tracking
-Add a `size` attribute and `get_size()` method to track list length.
+**Objectives:**
+1.  Create a `SongNode` class. It should have `self.song_name` and `self.next_song` (default None).
+2.  Create a `Playlist` class with `self.head`.
+3.  Implement `add_song(name)`: Adds a new song to the *end* of the list. (You'll need to traverse from the head to find the last node).
+4.  Implement `play_all()`: Traverses from the head, printing "Now playing: [Song Name]" until it reaches the end.
 
-## Step 4: Test Your Linked List
-Create a linked list, add several elements, display them, and show the size.
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Linked List: 10 -> 20 -> 30 -> 40 -> None
-Size: 4
-
-Adding more elements...
-Linked List: 10 -> 20 -> 30 -> 40 -> 50 -> 60 -> None
-Size: 6
-```
+**Success Condition:**
+Add 3 songs: "Shape of You", "Despacito", "Industry Baby".
+Run `play_all()`. It should print them in the correct order.
+Prove it's a linked list: Manually check that `playlist.head.next_song.song_name` gives you the second song!

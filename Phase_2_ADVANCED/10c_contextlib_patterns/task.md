@@ -1,40 +1,22 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Temporary Configuration Switch**
 
-## Step 1: Create Context Manager with @contextmanager
-Import `contextmanager` from contextlib and create a `temporary_file()` context manager that:
-- Opens a temp file in write mode (yield the file handle)
-- Automatically closes and deletes the file after use
-- Uses try/finally to ensure cleanup
+You are writing tests for an application that behaves differently in "DEV" mode vs "PROD" mode. You need to switch the environment variable `APP_ENV` to "PROD" just for one specific test, and then *immediately* switch it back to "DEV" so you don't break other tests. Doing this manually with `os.environ` is tedious and error-prone.
 
-## Step 2: Use suppress() from contextlib
-Import `suppress` and use it to:
-- Ignore FileNotFoundError when trying to delete a non-existent file
-- Show that code continues even if error occurs
+**Your Goal:**
+Create a clean, reusable `@contextmanager` that temporarily sets an environment variable and resets it when done.
 
-## Step 3: Create a Nested Context Manager
-Use `@contextmanager` to create `change_directory(path)` that:
-- Saves current directory
-- Changes to new directory (yield)
-- Restores original directory in finally block
-- Import `os` module
+**Objectives:**
+1.  Import `contextmanager` from `contextlib` and `os`.
+2.  Define a generator function `temporary_env_var(key, value)`.
+3.  **Setup (`yield` before):** Save the old value of `os.environ[key]`. Set the new `value`. Yield.
+4.  **Teardown (`yield` after):** In a `finally` block, restore the old value.
+5.  Test it:
+    - Set `os.environ["MODE"] = "DEFAULT"`.
+    - Use `with temporary_env_var("MODE", "TESTING"):`.
+    - Inside the block, print `os.environ["MODE"]` (should be "TESTING").
+    - Outside the block, print `os.environ["MODE"]` (should be "DEFAULT").
 
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Writing to temporary file...
-Temp file created and used successfully
-Temp file cleaned up!
-
-Trying to delete non-existent file...
-File doesn't exist, but no error raised!
-Code continues normally.
-
-Current dir: /Users/ianchen/development/python_projects/python-journey/PHASE_2_ADVANCED_PYTHON/10c_contextlib_patterns
-Changed to: /tmp
-Working in: /tmp
-Restored to: /Users/ianchen/development/python_projects/python-journey/PHASE_2_ADVANCED_PYTHON/10c_contextlib_patterns
-```
+**Success Condition:**
+The environment variable must revert to its original value automatically, ensuring your test doesn't pollute the global environment.

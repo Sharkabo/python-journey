@@ -1,42 +1,19 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Unclosed Connection leak**
 
-## Step 1: Read a File Using with Statement
-Create a file 'sample.txt' with some content, then:
-- Use `with open()` to read the file safely
-- Print the contents
-- Verify the file auto-closes after the with block
+Your team's server keeps crashing because it runs out of "file handles" or "database connections". It turns out developers are opening connections but forgetting to close them when errors occur. You need to enforce a pattern that makes it *impossible* to forget cleanup.
 
-## Step 2: Write to a File Using with Statement
-Use `with open()` in write mode to:
-- Create/overwrite 'output.txt'
-- Write 3 lines of text
-- Verify auto-close behavior
+**Your Goal:**
+Simulate a resource that *must* be closed (like a file), and use the `with` statement to ensure it closes even if the program crashes halfway through.
 
-## Step 3: Demonstrate the Advantage
-Show what happens without `with`:
-- Open a file normally (without with)
-- Read it
-- Manually close it
-- Comment on why `with` is better
+**Objectives:**
+1.  Use Python's built-in `open()` function as the simplest context manager.
+2.  Create a file `"crash_test.txt"`.
+3.  Write a block of code using `with open(...)` to write to the file.
+4.  Inside the `with` block, deliberately raise an exception (e.g., `raise ValueError("Oops!")`).
+5.  Wrap the whole thing in a `try...except` block to catch the error.
+6.  After the error is caught, verify if the file is closed. (Hint: `file_object.closed` returns True/False).
 
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-File contents:
-Hello, this is a sample file.
-It has multiple lines.
-Context managers are useful!
-
-File closed after with block: True
-
-Writing to output.txt...
-Write complete! File auto-closed: True
-
-Manual file handling (without with):
-Same content read
-Manual close required - with statement is safer!
-```
+**Success Condition:**
+You should see: "Error occurred: Oops!", followed by "File is closed: True". The file MUST be closed even though the code inside the `with` block crashed before it finished.

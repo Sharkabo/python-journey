@@ -1,46 +1,21 @@
 # Task Description
 
-Open `answer.py` in this folder and complete the following objectives:
+**Scenario: The Browser History Manager**
 
-## Step 1: Add Insert at Beginning
-Add method `insert_at_beginning(data)` to your LinkedList class that:
-- Creates a new node
-- Sets its next to current head
-- Updates head to the new node
+You are building the "Back" and "Forward" button logic for a web browser. The history is a sequence of URLs. Users can visit new pages (append), but sometimes they might want to "inject" a page in the middle of history or "delete" a specific embarrassing URL from their history.
 
-## Step 2: Add Insert at Position
-Add method `insert_at_position(data, position)` that:
-- Inserts a node at the specified position (0-indexed)
-- Handles edge cases (beginning, middle, end)
+**Your Goal:**
+Extend your Linked List to support **Insert** (at a specific position) and **Delete** (by value) operations.
 
-## Step 3: Add Delete Method
-Add method `delete(data)` that:
-- Finds and removes the first node with matching data
-- Returns True if deleted, False if not found
-- Handles head deletion correctly
+**Objectives:**
+1.  Reuse/Copy your `Node` and `LinkedList` structure.
+2.  Implement `insert_after(target_val, new_val)`: Find the node with `target_val` and insert a new node *immediately after* it.
+    - *Challenge:* You need to change the `next` pointer of the target node AND the `next` pointer of the new node. Order matters!
+3.  Implement `delete(val)`: Find the node with `val` and remove it from the list.
+    - *Challenge:* You need the *previous* node to change its `next` pointer to skip the deleted node.
 
-## Step 4: Test All Operations
-Test insert at beginning, insert at position, and delete operations.
-
----
-
-**Expected Output:**
-When you run the code, the terminal should show:
-```text
-Initial list:
-10 -> 20 -> 30 -> None
-
-After insert at beginning (5):
-5 -> 10 -> 20 -> 30 -> None
-
-After insert at position 2 (15):
-5 -> 10 -> 15 -> 20 -> 30 -> None
-
-Delete 15: True
-After deletion:
-5 -> 10 -> 20 -> 30 -> None
-
-Delete 999 (not found): False
-Final list:
-5 -> 10 -> 20 -> 30 -> None
-```
+**Success Condition:**
+1.  Create list: `[Google] -> [GitHub] -> [Reddit]`.
+2.  Insert `[StackOverflow]` after `[GitHub]`. List should look like: `Google -> GitHub -> StackOverflow -> Reddit`.
+3.  Delete `[Reddit]`. Final list: `Google -> GitHub -> StackOverflow`.
+4.  Print the final list to verify the links are correct.
