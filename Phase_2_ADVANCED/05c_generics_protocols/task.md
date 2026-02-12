@@ -1,18 +1,24 @@
 # Task Description
 
-**Scenario: The Strictly Typed Inventory System**
+**Scenario: The Universal Package Handler**
 
-You are building the core backend for a high-reliability e-commerce platform. The previous system caused millions of dollars in losses because simple type errors (like treating a price strings as numbers) crashed the checkout process. Your CTO has mandated that the new system must use **Type Hints** for everything.
+You are designing a logistics system for a shipping company. They ship *everything*—books, electronics, fragile glass. You need a system that can handle any type of item (`Generic`) but also ensures that every item has a specific capability, like reporting its weight (`Protocol`).
 
 **Your Goal:**
-Build a robust `Inventory` system that manages `Product` items. You must use strict type hints for all classes, methods, and list collections to ensure the code is transparent and self-documenting.
+Build a **Generic** container class that can hold any item type, but enforce that items must follow a specific **Protocol**.
 
 **Objectives:**
-1.  Create a `Product` class with typed attributes for `name` (str), `price` (float), and `stock` (int).
-2.  Add a generic type hint list `items: list[Product]` to the `Inventory` class to ensure it *only* stores Product objects.
-3.  Implement a method `add_product(product: Product) -> None` that enforces adding valid Product instances.
-4.  Implement `get_total_value() -> float` to calculate the total value of all stock.
-5.  Create a strict protocol or base structure if needed, but primarily focus on ensuring that if another developer tries to add a `string` or `int` to your inventory, a static type checker would scream at them (and it should be visually obvious in the code).
+1.  **Define a Protocol:** Create a `Weighable` protocol. It must require a method `get_weight(self) -> float`.
+2.  **Define Items:** Create two classes, `Book` and `Laptop`, that implement `Weighable`.
+    - `Book` weight might be 0.5.
+    - `Laptop` weight might be 2.0.
+3.  **Create a Generic Class:** Create a class `ShippingContainer[T]` where `T` is a TypeVar.
+    - It should hold a list of items of type `T`.
+    - It should have a method `add_item(item: T)`.
+    - It should have a method `total_weight() -> float` that sums up the weights of all items.
+4.  **The Twist:** The `ShippingContainer` should be type-hinted so that `T` is *bound* to `Weighable` (syntax: `T = TypeVar("T", bound=Weighable)`). This ensures you can't put a non-weighable object in it!
 
 **Success Condition:**
-Your code should gracefully handle creating products, adding them to an inventory, and calculating the total value, with every single variable and function signature explicitly typed.
+1.  Create a `ShippingContainer` for Books. Add a Book. Print total weight.
+2.  Create a `ShippingContainer` for Laptops. Add a Laptop. Print total weight.
+3.  (Mental Check): If you tried to add a string "Hello" to the container, your IDE (static type checker) should theoretically flag it as an error because "Hello" doesn't have `get_weight()`.

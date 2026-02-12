@@ -1,68 +1,77 @@
-# Unit 05c: Type Hints for Classes
+# Unit 05c: Generics and Protocols
 
-## 1. Type Hints for Classes
-You can add type hints to class attributes and methods just like functions.
+## 1. Generics (TypeVars)
+Generics allow you to write flexible components that work with multiple types while maintaining type safety. Use `TypeVar` to create a placeholder type.
 
 **Syntax:**
 ```python
-class ClassName:
-    # Class variable type hint
-    class_var: int = 0
-    
-    def __init__(self, name: str, age: int):
-        self.name: str = name
-        self.age: int = age
-    
-    def method(self) -> str:
-        return "result"
+from typing import TypeVar
+
+T = TypeVar("T")  # Define a generic type variable
+
+def get_first(items: list[T]) -> T:
+    return items[0]
 ```
 
 **Example:**
 ```python
-class User:
-    def __init__(self, name: str, age: int, email: str):
-        self.name: str = name
-        self.age: int = age
-        self.email: str = email
-    
-    def get_info(self) -> str:
-        return f"{self.name}, {self.age} years old"
-    
-    def is_adult(self) -> bool:
-        return self.age >= 18
+from typing import TypeVar
 
-user: User = User("Alice", 25, "alice@email.com")
-print(user.get_info())
+T = TypeVar("T")
+
+class Stack:
+    def __init__(self):
+        self.items: list[T] = []
+    
+    def push(self, item: T) -> None:
+        self.items.append(item)
+    
+    def pop(self) -> T:
+        return self.items.pop()
+
+box = Stack()
+box.push(10)      # T becomes int
+# box.push("hi")  # Type Checker Error!
 ```
 
 ---
 
-## 2. Type Hints with Inheritance (Optional)
-Type hints work with inheritance to ensure subclasses follow parent class contracts.
+## 2. Protocols (Structural Subtyping)
+Protocols define "duck typing" rules. An object follows a protocol if it has the required methods, even if it doesn't inherit from a specific class.
 
 **Syntax:**
 ```python
-class Animal:
-    def speak(self) -> str:
-        return "Some sound"
+from typing import Protocol
 
-class Dog(Animal):
-    def speak(self) -> str:  # Override with same type
-        return "Woof!"
+class CanFly(Protocol):
+    def fly(self) -> None:
+        ...  # Empty body
 ```
 
 **Example:**
 ```python
-def make_animal_speak(animal: Animal) -> str:
-    return animal.speak()
+from typing import Protocol
 
-dog: Dog = Dog()
-cat: Cat = Cat()
+class Flyer(Protocol):
+    def fly(self) -> str:
+        ...
 
-print(make_animal_speak(dog))  # Works with any subclass
+class Bird:
+    def fly(self) -> str:
+        return "Flap flap"
+
+class Airplane:
+    def fly(self) -> str:
+        return "Whoosh"
+
+def make_it_fly(obj: Flyer):
+    print(obj.fly())
+
+make_it_fly(Bird())      # Works!
+make_it_fly(Airplane())  # Works!
 ```
 
 ---
 
 ## Spiral Learning Note
-You learned basic and advanced type hints. Now you apply them to classes. Next you'll learn `*args` and `**kwargs` which also use type hints.
+You moved from basic types to Generics (flexible types) and Protocols (structural types). These are advanced tools for building large, robust systems. Next you'll learn about `*args` and `**kwargs`.
