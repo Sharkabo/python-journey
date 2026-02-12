@@ -49,11 +49,10 @@ unit_name/
 
 **task.md** - Exercise definition (created before answer.py)
 - You first create this file to define the exercise
-- Break down the exercise into several steps
+- Breaking down one massive exercise into several steps
 - Specifies expected output for verification
 
 **answer.py** - Implementation workspace (supports task.md)
-- A supporting file that mirrors the step structure from task.md
 - You write code here to complete task by completing each step defined in task.md
 
 ### Learning Flow
