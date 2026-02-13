@@ -76,7 +76,11 @@ def combine_two_dict(**source) -> dict[str, int]:
     return result
 
 # Drill 10: Create a wrapper function that logs any function call (use *args, **kwargs)
-def logger(func):
+from typing import Callable
+from functools import wraps
+
+def logger(func:Callable):
+    @wraps(func)
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         return result
