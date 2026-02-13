@@ -25,7 +25,7 @@ def greet(greeting: str, *names: str) -> list[str]:
 from typing import Any
 
 def build_url(base: str, *paths: str, **params: Any) -> str:
-    path_str = "/".join(paths)
+    path_str = "/".join(map(str, paths))
     para_list: list[str] = []
     for key, value in params.items():
         para_list.append(f"{key}={value}")
@@ -65,7 +65,6 @@ def combine_two_lists(*source) -> list[int]:
 
 list_a: list[int] = [1, 2, 3]
 list_b: list[int] = [4, 5, 6]
-
 combine_two_lists(*list_a, *list_b)
 
 # Drill 9: Combine two dictionaries using unpacking

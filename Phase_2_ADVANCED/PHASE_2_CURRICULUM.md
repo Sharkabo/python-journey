@@ -24,43 +24,42 @@
 
 ### Decorators (Units 07a-07c)
 11. **Unit 07a**: Decorator Basics
-12. **Unit 07b**: Decorators with Arguments
-13. **Unit 07c**: Decorator Patterns (Logging, Timing, Retry)
+12. **Unit 07b**: Decorator Patterns (Logging, Timing, Retry)
 
 ### Functional Programming (Unit 08)
-14. **Unit 08**: Lambda and Functional Programming
+13. **Unit 08**: Lambda and Functional Programming
 
 ### Generators and Iterators (Units 09a-09b)
-15. **Unit 09a**: Iterators and the Iterator Protocol
-16. **Unit 09b**: Generators and Yield
+14. **Unit 09a**: Iterators and the Iterator Protocol
+15. **Unit 09b**: Generators and Yield
 
 ### Context Managers (Units 10a-10c)
-17. **Unit 10a**: Context Manager Basics
-18. **Unit 10b**: Custom Context Managers
-19. **Unit 10c**: Contextlib and Patterns
+16. **Unit 10a**: Context Manager Basics
+17. **Unit 10b**: Custom Context Managers
+18. **Unit 10c**: Contextlib and Patterns
 
 ### Abstract Base Classes (Units 11a-11b)
-20. **Unit 11a**: ABC Basics
-21. **Unit 11b**: ABC Patterns and Protocols
+19. **Unit 11a**: ABC Basics
+20. **Unit 11b**: ABC Patterns and Protocols
 
 ### Exception Handling (Units 12a-12b)
-22. **Unit 12a**: Custom Exceptions
-23. **Unit 12b**: Exception Patterns and Best Practices
+21. **Unit 12a**: Custom Exceptions
+22. **Unit 12b**: Exception Patterns and Best Practices
 
 ### Data Structures - Linked Lists (Units 13a-13c)
-24. **Unit 13a**: Linked List Basics
-25. **Unit 13b**: Linked List Operations
-26. **Unit 13c**: Doubly Linked Lists
+23. **Unit 13a**: Linked List Basics
+24. **Unit 13b**: Linked List Operations
+25. **Unit 13c**: Doubly Linked Lists
 
 ### Data Structures - Trees (Units 14a-14c)
-27. **Unit 14a**: Tree Basics
-28. **Unit 14b**: Binary Search Trees
-29. **Unit 14c**: Tree Traversal Algorithms
+26. **Unit 14a**: Tree Basics
+27. **Unit 14b**: Binary Search Trees
+28. **Unit 14c**: Tree Traversal Algorithms
 
 ### Algorithms (Units 15a-15c)
-30. **Unit 15a**: Algorithm Complexity (Big O)
-31. **Unit 15b**: Sorting Algorithms
-32. **Unit 15c**: Searching Algorithms
+29. **Unit 15a**: Algorithm Complexity (Big O)
+30. **Unit 15b**: Sorting Algorithms
+31. **Unit 15c**: Searching Algorithms
 
 ---
 
