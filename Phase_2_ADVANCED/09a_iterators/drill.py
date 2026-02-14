@@ -93,3 +93,7 @@ class FileLineIterator:
             self.file.close()
             raise StopIteration
         return line.strip()
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.file and not self.file.closed:
+            self.file.close()
