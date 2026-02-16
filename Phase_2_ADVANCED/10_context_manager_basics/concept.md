@@ -1,4 +1,4 @@
-# Unit 10a: Context Manager Basics
+# Unit 10: Context Manager Basics
 
 ## 1. The with Statement
 The `with` statement ensures resources are properly cleaned up, even if errors occur.

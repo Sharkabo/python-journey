@@ -33,33 +33,31 @@
 14. **Unit 09a**: Iterators and the Iterator Protocol
 15. **Unit 09b**: Generators and Yield
 
-### Context Managers (Units 10a-10c)
-16. **Unit 10a**: Context Manager Basics
-17. **Unit 10b**: Custom Context Managers
-18. **Unit 10c**: Contextlib and Patterns
+### Context Managers (Units 10)
+16. **Unit 10**: Context Manager Basics
 
 ### Abstract Base Classes (Units 11a-11b)
-19. **Unit 11a**: ABC Basics
-20. **Unit 11b**: ABC Patterns and Protocols
+17. **Unit 11a**: ABC Basics
+18. **Unit 11b**: ABC Patterns and Protocols
 
 ### Exception Handling (Units 12a-12b)
-21. **Unit 12a**: Custom Exceptions
-22. **Unit 12b**: Exception Patterns and Best Practices
+19. **Unit 12a**: Custom Exceptions
+20. **Unit 12b**: Exception Patterns and Best Practices
 
 ### Data Structures - Linked Lists (Units 13a-13c)
-23. **Unit 13a**: Linked List Basics
-24. **Unit 13b**: Linked List Operations
-25. **Unit 13c**: Doubly Linked Lists
+21. **Unit 13a**: Linked List Basics
+22. **Unit 13b**: Linked List Operations
+23. **Unit 13c**: Doubly Linked Lists
 
 ### Data Structures - Trees (Units 14a-14c)
-26. **Unit 14a**: Tree Basics
-27. **Unit 14b**: Binary Search Trees
-28. **Unit 14c**: Tree Traversal Algorithms
+24. **Unit 14a**: Tree Basics
+25. **Unit 14b**: Binary Search Trees
+26. **Unit 14c**: Tree Traversal Algorithms
 
 ### Algorithms (Units 15a-15c)
-29. **Unit 15a**: Algorithm Complexity (Big O)
-30. **Unit 15b**: Sorting Algorithms
-31. **Unit 15c**: Searching Algorithms
+27. **Unit 15a**: Algorithm Complexity (Big O)
+28. **Unit 15b**: Sorting Algorithms
+29. **Unit 15c**: Searching Algorithms
 
 ---
 
