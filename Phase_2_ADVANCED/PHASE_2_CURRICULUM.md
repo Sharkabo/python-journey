@@ -39,24 +39,23 @@
 ### Abstract Base Classes (Units 11)
 17. **Unit 11**: ABC Basics
 
-### Exception Handling (Units 12a-12b)
+### Exception Handling (Units 12)
 18. **Unit 12a**: Custom Exceptions
-19. **Unit 12b**: Exception Patterns and Best Practices
 
 ### Data Structures - Linked Lists (Units 13a-13c)
-20. **Unit 13a**: Linked List Basics
-21. **Unit 13b**: Linked List Operations
-22. **Unit 13c**: Doubly Linked Lists
+21. **Unit 13a**: Linked List Basics
+22. **Unit 13b**: Linked List Operations
+23. **Unit 13c**: Doubly Linked Lists
 
 ### Data Structures - Trees (Units 14a-14c)
-23. **Unit 14a**: Tree Basics
-24. **Unit 14b**: Binary Search Trees
-25. **Unit 14c**: Tree Traversal Algorithms
+24. **Unit 14a**: Tree Basics
+25. **Unit 14b**: Binary Search Trees
+26. **Unit 14c**: Tree Traversal Algorithms
 
 ### Algorithms (Units 15a-15c)
-26. **Unit 15a**: Algorithm Complexity (Big O)
-27. **Unit 15b**: Sorting Algorithms
-28. **Unit 15c**: Searching Algorithms
+27. **Unit 15a**: Algorithm Complexity (Big O)
+28. **Unit 15b**: Sorting Algorithms
+29. **Unit 15c**: Searching Algorithms
 
 ---
 

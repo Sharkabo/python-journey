@@ -1,4 +1,4 @@
-# Unit 12a: Custom Exceptions
+# Unit 12: Custom Exceptions
 
 ## 1. Creating Custom Exceptions
 Create custom exception classes by inheriting from `Exception` to make error handling more specific.
