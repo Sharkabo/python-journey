@@ -3,16 +3,27 @@
 # ----------------------------------------------------------------------------------
 
 # Drill 1: Create a Node class with data and next attributes
+from __future__ import annotations
 
+class Node:
+    def __init__(self, data: Any) -> None:
+        self.data = data
+        self.next: Node | None = None
 
 # Drill 2: Create a LinkedList class with head attribute
+# Drill 3: Implement append(), display methods
+from typing import Any
 
-
-# Drill 3: Implement append() method
-
-
-# Drill 4: Implement display() method
-
-
-# Drill 5: Create a linked list with 3 nodes
-
+class LinkedList:
+    def __init__(self) -> None:
+        self.head = None
+    
+    def append(self, data)-> Any:
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = new_node

@@ -1,7 +1,7 @@
 # Unit 13a: Linked List Basics
 
 ## 1. What is a Linked List?
-A sequence of nodes where each node contains data and a reference to the next node. Unlike arrays, linked lists don't need contiguous memory.
+A sequence of nodes where each node contains data and a reference to the next node. Node is like cargo, and linked list is the interface to manage all cargos.  Unlike arrays, linked lists don't need contiguous memory.
 
 **Syntax:**
 ```python
@@ -17,10 +17,12 @@ class LinkedList:
 
 **Example:**
 ```python
+from __future__ import annotations
+
 class Node:
-    def __init__(self, data):
+    def __init__(self, data: Any) -> None:
         self.data = data
-        self.next = None
+        self.next: Node | None = None
 
 class LinkedList:
     def __init__(self):
